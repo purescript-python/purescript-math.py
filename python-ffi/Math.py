@@ -1,5 +1,7 @@
 import math
 
+abs = abs
+
 acos = math.acos
 
 asin = math.asin
