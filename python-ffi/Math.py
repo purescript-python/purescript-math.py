@@ -31,6 +31,7 @@ for k in _curried:
 
 remainder = lambda n: lambda m: n % m
 
+round = round
 
 sin = math.sin
 
