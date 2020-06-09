@@ -6,8 +6,6 @@ asin = math.asin
 
 atan = math.atan
 
-atan2 = lambda y: lambda x: math.atan2(y, x)
-
 ceil = math.ceil
 
 cos = math.cos
@@ -23,6 +21,7 @@ _curried = {
     "max": max,
     "min": min,
     "pow": pow,
+    "atan2": math.atan2
 }
 
 for k in _curried:
@@ -43,9 +42,9 @@ ln2 = math.log2
 
 ln10 = math.log10
 
-log2e = math.log(2)
+log2e = math.log(math.e, 2)
 
-log10e = math.log(10)
+log10e = math.log(math.e, 10)
 
 pi = math.pi
 
