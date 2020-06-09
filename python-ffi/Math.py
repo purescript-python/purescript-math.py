@@ -8,30 +8,37 @@ asin = math.asin
 
 atan = math.atan
 
-ceil = math.ceil
 
 cos = math.cos
 
 exp = math.exp
 
-floor = math.floor
 
 trunc = math.trunc
 log = math.log
 
-_curried = {
-    "max": max,
-    "min": min,
-    "pow": pow,
-    "atan2": math.atan2
-}
+_curried = {"max": max, "min": min, "pow": pow, "atan2": math.atan2}
 
 for k in _curried:
     globals()[k] = lambda x: lambda y: _curried[k](x, y)
 
 remainder = lambda n: lambda m: n % m
 
-round = round
+
+def map_nan_inf_to_zero(f):
+    def result(n):
+        if math.isnan(n) or math.isinf(n):
+            return 0
+        else:
+            return f(n)
+    return result
+
+
+round = map_nan_inf_to_zero(round)
+
+floor = map_nan_inf_to_zero(math.floor)
+
+ceil = map_nan_inf_to_zero(math.ceil)
 
 sin = math.sin
 
